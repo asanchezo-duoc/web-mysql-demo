@@ -1,17 +1,22 @@
 <?php
 require_once 'config/database.php';
 
-// Obtener servicios
-$stmt = $conn->query("SELECT * FROM servicios");
-$servicios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+try {
+    // Obtener servicios
+    $stmt = $conn->query("SELECT * FROM servicios");
+    $servicios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Obtener testimonios
-$stmt = $conn->query("SELECT * FROM testimonios");
-$testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Obtener testimonios
+    $stmt = $conn->query("SELECT * FROM testimonios");
+    $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Obtener equipo
-$stmt = $conn->query("SELECT * FROM equipo");
-$equipo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Obtener equipo
+    $stmt = $conn->query("SELECT * FROM equipo");
+    $equipo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch(PDOException $e) {
+    echo "Error en la consulta: " . $e->getMessage();
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
