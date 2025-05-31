@@ -34,7 +34,7 @@ dnf update -y
 
 # Instalar dependencias
 print_message "Instalando dependencias..."
-dnf install -y mariadb-server httpd php-pdo php-mysqlnd git
+dnf install -y mariadb-server httpd php php-pdo php-mysqlnd git
 
 # Iniciar y habilitar servicios
 print_message "Configurando servicios..."
